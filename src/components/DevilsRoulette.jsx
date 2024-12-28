@@ -55,7 +55,7 @@ const DevilsRoulette = () => {
     const remainingCounts = getRemainingCounts();
     const totalBullets = liveBullets + dummyBullets;
     if (totalBullets === 0) return 0;
-    return ((remainingCounts.live / totalBullets) * 100).toFixed(1);
+    return ((remainingCounts.live / (totalBullets - assignedLive - assignedDummy)) * 100).toFixed(1);
   };
 
   const remaining = getRemainingCounts();
