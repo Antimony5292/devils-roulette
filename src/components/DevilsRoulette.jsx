@@ -36,7 +36,7 @@ const DevilsRoulette = () => {
       case 'live':
         return 'text-red-500';
       case 'dummy':
-        return 'text-gray-400';
+        return 'text-cyan-500';
       default:
         return 'text-blue-500';
     }
@@ -63,55 +63,60 @@ const DevilsRoulette = () => {
   const remaining = getRemainingCounts();
 
   return (
-    <div className="w-full max-w-md p-4 space-y-6">
-      <div className="space-y-4">
-        <div>
-          <Label htmlFor="live">Live Bullets</Label>
-          <Input
-            id="live"
-            type="number"
-            min="0"
-            value={liveBullets}
-            onChange={(e) => setLiveBullets(Math.max(0, parseInt(e.target.value) || 0))}
-            className="w-full"
-          />
-        </div>
-        
-        <div>
-          <Label htmlFor="dummy">Dummy Bullets</Label>
-          <Input
-            id="dummy"
-            type="number"
-            min="0"
-            value={dummyBullets}
-            onChange={(e) => setDummyBullets(Math.max(0, parseInt(e.target.value) || 0))}
-            className="w-full"
-          />
-        </div>
-
-        <div className="flex justify-between text-sm text-gray-600">
-          <span>Remaining Live: {remaining.live}</span>
-          <span>Remaining Dummy: {remaining.dummy}</span>
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        {bullets.map((state, index) => (
-          <div key={index} className="flex items-center space-x-2">
-            <button
-              onClick={() => cycleBulletState(index)}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-            >
-              <Circle 
-                className={`w-6 h-6 ${getBulletColor(state)}`}
-                fill={state !== 'indeterminate' ? 'currentColor' : 'none'}
-              />
-            </button>
-            <span className="text-sm text-gray-500">
-              {state === 'indeterminate' && `${calculateProbability(index)}% live`}
-            </span>
+    <div className="flex items-center justify-center h-screen">
+      <div className="w-full max-w-md p-4 space-y-6">
+        <div className="space-y-4">
+          <div>
+            <Label htmlFor="live" className="text-black"><font color="#FF0000"><b>实</b></font>弹 Live Bullets</Label>
+            <Input
+              id="live"
+              type="number"
+              min="0"
+              value={liveBullets}
+              onChange={(e) => setLiveBullets(Math.max(0, parseInt(e.target.value) || 0))}
+              className="w-full"
+            />
           </div>
-        ))}
+          
+          <div>
+            <Label htmlFor="dummy" className="text-black"><font color="#15e7eb"><b>空</b></font>弹 Dummy Bullets</Label>
+            <Input
+              id="dummy"
+              type="number"
+              min="0"
+              value={dummyBullets}
+              onChange={(e) => setDummyBullets(Math.max(0, parseInt(e.target.value) || 0))}
+              className="w-full"
+            />
+          </div>
+
+          <div className="flex justify-between text-sm text-black">
+            <span>剩余<font color="#FF0000"><b>实</b></font>弹 Remaining Live: {remaining.live}</span>
+          </div>
+
+          <div className="flex justify-between text-sm text-black">
+            <span>剩余<font color="#15e7eb"><b>空</b></font>弹 Remaining Dummy: {remaining.dummy}</span>
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          {bullets.map((state, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <button
+                onClick={() => cycleBulletState(index)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <Circle 
+                  className={`w-6 h-6 ${getBulletColor(state)}`}
+                  fill={state !== 'indeterminate' ? 'currentColor' : 'none'}
+                />
+              </button>
+              <span className="text-sm text-gray-500">
+                {state === 'indeterminate' && `${calculateProbability(index)}% live`}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

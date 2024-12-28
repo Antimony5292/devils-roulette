@@ -1,4 +1,8 @@
 #root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* 确保垂直居中 */
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
