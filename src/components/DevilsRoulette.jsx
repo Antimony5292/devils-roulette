@@ -54,6 +54,8 @@ const DevilsRoulette = () => {
   const calculateProbability = (index) => {
     const remainingCounts = getRemainingCounts();
     const totalBullets = liveBullets + dummyBullets;
+    const assignedLive = bullets.filter(b => b === 'live').length;
+    const assignedDummy = bullets.filter(b => b === 'dummy').length;
     if (totalBullets === 0) return 0;
     return ((remainingCounts.live / (totalBullets - assignedLive - assignedDummy)) * 100).toFixed(1);
   };
