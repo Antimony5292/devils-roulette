@@ -66,6 +66,7 @@ const DevilsRoulette = () => {
     <div className="flex items-center justify-center h-screen">
       <div className="w-full max-w-md p-4 space-y-6">
         <div className="space-y-4">
+        
           <div>
             <Label htmlFor="live" className="text-black"><font color="#FF0000"><b>实</b></font>弹 Live Bullets</Label>
             <Input
@@ -112,11 +113,28 @@ const DevilsRoulette = () => {
                 />
               </button>
               <span className="text-sm text-gray-500">
-                {state === 'indeterminate' && `${calculateProbability(index)}% live`}
+                {state === 'indeterminate' && `${calculateProbability(index)}% 概率是实弹`}
               </span>
             </div>
           ))}
         </div>
+        <p className="text-xs text-black">开源不易，欢迎点点Star、提交PR！</p>
+        <iframe src="https://ghbtns.com/github-btn.html?user=antimony5292&repo=devils-roulette&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+        <img
+            src="src\assets\QRcode.png"
+            alt="QR Code"
+            className="w-32 h-32 object-contain border border-gray-300 rounded-lg shadow"
+          />
+      </div>
+
+        <div className="absolute top-1/2 right-[calc(50%-160px)] transform -translate-y-1/2">
+          {/* <iframe src="https://ghbtns.com/github-btn.html?user=twbs&repo=bootstrap&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe> */}
+          {/* <p>开源不易，欢迎点点Star、提交PR！</p> */}
+          {/* <img
+            src="/path/to/your-qrcode.png"
+            alt="QR Code"
+            className="w-32 h-32 object-contain border border-gray-300 rounded-lg shadow"
+          /> */}
       </div>
     </div>
   );
