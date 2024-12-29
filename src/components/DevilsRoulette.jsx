@@ -121,7 +121,7 @@ const DevilsRoulette = () => {
         <p className="text-xs text-black">开源不易，欢迎点点Star、提交PR！</p>
         <iframe src="https://ghbtns.com/github-btn.html?user=antimony5292&repo=devils-roulette&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
         <img
-            src="src\assets\QRcode.png"
+            src="./QRcode.png"
             alt="QR Code"
             className="w-32 h-32 object-contain border border-gray-300 rounded-lg shadow"
           />
